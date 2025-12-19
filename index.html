@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notes Bridge | Your Study Partner</title>
+  <link rel="icon" href="/img/logo.jpeg">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo" onclick="showView('home')">Notes<span>Bridge</span><sup
+          style="font-size: 9px; font-weight: 600; color: #64748b; margin-left: 2px; text-transform: uppercase; letter-spacing: 0.5px; font-family: sans-serif;">Beta
+          Stage</sup></div>
+      <div class="nav-links">
+        <a href="#" class="nav-item active" onclick="showView('home')">Home</a>
+        <a href="#about" class="nav-item">About</a>
+      </div>
+      <div class="nav-action">
+        <button class="contact-pill" onclick="toggleSupport()">Support ?</button>
+      </div>
+
+      <div id="support-modal" class="support-modal">
+        <div class="support-content">
+          <div style="font-size: 40px; margin-bottom: 10px;">📩</div>
+          <h3>Help & Support</h3>
+          <p>Facing any issues? Please fill out our Google support form, and we'll help you out.</p>
+          <p>Note: This link opens an official Google Form in a new tab.
+          </p>
+
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSekbAJ5YEqoSaSSxwMlkW7gldNIO6UvszwgedD_mrvgE0rFug/viewform?usp=header"
+            target="_blank" class="support-btn" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); 
+    color: white; 
+    border: none; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+            <img src="https://www.gstatic.com/images/branding/product/1x/forms_2020q4_48dp.png" alt="Form" width="20">
+            Open Google Form
+          </a>
+
+          <button class="close-support" onclick="toggleSupport()"
+            style="margin-top: 15px; background: none; border: none; color: #666; cursor: pointer;">Maybe Later</button>
+        </div>
+      </div>
+    </div>
+    <div id="support-overlay" class="support-overlay" onclick="toggleSupport()"></div>
+    </div>
+
+  </nav>
+
+  <main id="app">
+    <section id="home" class="view active">
+      <h1>Welcome, Student</h1>
+      <p>What are you looking for today?</p>
+      <div class="grid">
+        <div class="card main-card" onclick="showView('departments')">
+          <h2>Old Question Papers</h2>
+        </div>
+        <div class="card main-card">
+          <h2>Notes (Coming soon)</h2>
+        </div>
+      </div>
+
+
+    </section>
+
+    <section id="departments" class="view">
+      <button class="back-btn" onclick="showView('home')">← Back</button>
+      <h1>Select Department</h1>
+      <div class="grid">
+        <div class="card" onclick="showView('universities')">MCA</div>
+        <div class="card">BCA (Coming soon)</div>
+        <div class="card">MBA (Coming soon)</div>
+        <div class="card">B.Tech (Coming soon)</div>
+      </div>
+    </section>
+
+    <section id="universities" class="view">
+      <button class="back-btn" onclick="showView('departments')">← Back</button>
+      <h1>Select University</h1>
+      <div class="grid">
+        <div class="card" onclick="showView('semesters')">Rajasthan Technical University</div>
+        <div class="card">Other Universities (Coming soon)</div>
+      </div>
+    </section>
+
+    <section id="semesters" class="view">
+      <button class="back-btn" onclick="showView('universities')">← Back</button>
+      <h1>Select Semester</h1>
+      <div class="grid">
+        <div class="card" onclick="selectSemester('semester1')">Semester 1</div>
+        <div class="card">Semester 2 (Soon)</div>
+        <div class="card">Semester 3 (Soon)</div>
+        <div class="card">Semester 4 (Soon)</div>
+      </div>
+    </section>
+
+    <section id="years" class="view">
+      <button class="back-btn" onclick="showView('semesters')">← Back</button>
+      <h1>Select Year</h1>
+      <div class="grid">
+        <div class="card" onclick="selectYear('2023')">2023</div>
+        <div class="card">2025 (Soon)</div>
+        <div class="card">2024 (Soon)</div>
+        <div class="card">2022 (Soon)</div>
+        <div class="card">2021 (Soon)</div>
+      </div>
+    </section>
+
+    <section id="semester1" class="view">
+      <button class="back-btn" onclick="showView('years')">← Back</button>
+      <h1>Available Subjects</h1>
+      <div class="list">
+        <div class="list-item"
+          onclick="showDownload('Mathematical Foundations in Computer Science', 'mca-1-sem-mathematical-foundations-in-computer-science-2023.pdf')">
+          Mathematical Foundations in Computer Science</div>
+        <div class="list-item" onclick="showDownload('Object Oriented Programming with C++', 'oops.pdf')">Object
+          Oriented Programming with C++</div>
+        <div class="list-item" onclick="showDownload('Operating System', 'mca-1-sem-operating-system-2023.pdf')">
+          Operating System</div>
+        <div class="list-item"
+          onclick="showDownload('Computer Architecture', 'mca-1-sem-computer-architecture-2023.pdf')">
+          Computer Architecture</div>
+        <div class="list-item" onclick="showDownload('Database Systems', 'mca-1-sem-database-systems-2023.pdf')">
+          Database Systems</div>
+        <div class="list-item" onclick="showDownload('Web Technologies', 'mca-1-sem-web-technologies-2023.pdf')">
+          Web Technologies</div>
+
+
+
+      </div>
+    </section>
+
+    <section id="semester2" class="view">
+      <button class="back-btn" onclick="showView('years')">← Back</button>
+      <h1>Available Subjects</h1>
+      <div class="list">
+        <div class="list-item" onclick="showDownload('Java Technologies', 'java.pdf')">Java Technologies</div>
+        <div class="list-item" onclick="showDownload('Computer Networks', 'cn.pdf')">Computer Networks</div>
+      </div>
+    </section>
+
+
+    <section id="download" class="view">
+      <button class="back-btn" onclick="goBackFromDownload()">← Back</button>
+      <h1 id="selected-subject">Subject Name</h1>
+      <div class="download-container">
+        <p>Your file is ready for download.</p>
+        <a href="#" download class="download-btn">Download Previous Year Question Paper PDF</a>
+      </div>
+    </section>
+  </main>
+
+
+  <footer class="main-footer">
+    <div class="footer-links">
+      <a href="#">About Us</a>
+      <a href="./policy.html">Privacy Policy</a>
+      <a href="#">Contact</a>
+    </div>
+    <p>Educational website for students.
+      All notes and question papers are provided as PDF for study purposes only.
+      No software/APK downloads.
+      No personal data or payments are collected.</p>
+    <p>© 2025 Notes Bridge. All Rights Reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+<script src="script.js"></script>
+</body>
+
+</html>
